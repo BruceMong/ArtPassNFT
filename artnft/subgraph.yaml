@@ -1,0 +1,48 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ArtNFT
+    network: sepolia
+    source:
+      address: '0xAeAAb5AC8650dBb41D534278C4705E71196EAe9c'
+      abi: ArtNFT
+      startBlock: 6409011
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - TransferArt
+        - TokenArt
+      abis:
+        - name: ArtNFT
+          file: ./abis/ArtNFT.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/art-nft.ts
+  - kind: ethereum
+    name: ProofOfOwnNFT
+    network: sepolia
+    source:
+      address: '0xc49953Cdda0216633469f710C6d5102E5dB36136'
+      abi: ProofOfOwnNFT
+      startBlock: 6409012
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - TransferReadBook
+        - TokenReadBook
+      abis:
+        - name: ProofOfOwnNFT
+          file: ./abis/ProofOfOwnNFT.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/proof-of-own-nft.ts
