@@ -1,0 +1,11 @@
+{
+  "sepolia": {
+    "BookNFT": {
+      "address": "0x65d5aE9f2A4f40eC5030c8bAca45452132C842c1",
+      "startBlock": 5463994
+    },
+    "ReadBookNFT": {
+      "address": "0x8686d396D39dB1713131F75cCA513C04CBf6cF6C"
+    }
+  }
+}

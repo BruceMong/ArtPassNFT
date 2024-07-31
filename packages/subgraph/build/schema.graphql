@@ -1,0 +1,25 @@
+type TokenBook @entity {
+  id: ID!
+  owner: Bytes! # L'adresse actuelle du propriétaire
+  tokenId: BigInt! # L'ID unique du token NFT
+}
+
+type TransferBook @entity {
+  id: ID!
+  from: Bytes! # L'expéditeur
+  to: Bytes! # Le destinataire
+  tokenId: BigInt! # L'ID du token NFT transféré
+}
+
+type TokenReadBook @entity {
+  id: ID!
+  owner: Bytes! # L'adresse actuelle du propriétaire
+  tokenId: BigInt! # L'ID unique du token NFT
+}
+
+type TransferReadBook @entity {
+  id: ID!
+  from: Bytes! # L'expéditeur
+  to: Bytes! # Le destinataire
+  tokenId: BigInt! # L'ID du token NFT transféré
+}
