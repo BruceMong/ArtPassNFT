@@ -47,9 +47,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
     <html suppressHydrationWarning>
       <body>
         <ThemeProvider enableSystem>
-          {/*         <MoralisProvider appId={moralisId!} serverUrl={baseUrl}>  */}
           <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
-          {/*         </MoralisProvider> */}
         </ThemeProvider>
       </body>
     </html>

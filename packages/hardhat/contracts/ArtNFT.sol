@@ -19,7 +19,6 @@ contract ArtNFT is Ownable, ERC721URIStorage {
     struct Artwork {
         string name;
         string creator;
-        bytes32 metadataHash;
     }
 
     mapping(uint256 => Artwork) private _artworks;
@@ -31,8 +30,7 @@ contract ArtNFT is Ownable, ERC721URIStorage {
     function createArt(
         string memory metadataUrl,
         string memory name,
-        string memory creator,
-        bytes32 metadataHash
+        string memory creator
     ) external onlyOwner returns (uint256) {
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
@@ -42,17 +40,16 @@ contract ArtNFT is Ownable, ERC721URIStorage {
 
         _artworks[newItemId] = Artwork({
             name: name,
-            creator: creator,
-            metadataHash: metadataHash
+            creator: creator
         });
 
         return newItemId;
     }
 
-    function getArtDetails(uint256 tokenId) external view returns (string memory, string memory, bytes32) {
+    function getArtDetails(uint256 tokenId) external view returns (string memory, string memory) {
         require(_exists(tokenId), "ArtNFT: Query for nonexistent token");
         Artwork memory art = _artworks[tokenId];
-        return (art.name,  art.creator, art.metadataHash);
+        return (art.name,  art.creator);
     }
 
     function updateArtURI(uint256 tokenId, string memory newURI) external onlyOwner {

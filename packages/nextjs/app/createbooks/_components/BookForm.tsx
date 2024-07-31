@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SHA256 } from "crypto-js";
+import { sha256 } from "js-sha256";
 import { toast } from "react-hot-toast";
 import { useAccount } from "wagmi";
 import { useScaffoldContractWrite, useScaffoldEventSubscriber } from "~~/hooks/scaffold-eth";
@@ -31,9 +31,6 @@ const BookForm = () => {
         description: data.description,
       };
 
-      const metadataString = JSON.stringify(metadata);
-      const metadataHash = SHA256(metadataString).toString();
-
       const jsonData = JSON.stringify({
         pinataContent: metadata,
         name: "metadata.json",
@@ -49,7 +46,7 @@ const BookForm = () => {
       });
 
       const resData = await res.json();
-      return { ipfsHash: resData.IpfsHash, metadataHash };
+      return { ipfsHash: resData.IpfsHash };
     } catch (error) {
       console.error("Error uploading to Pinata:", error.message);
       throw new Error("Could not store NFT");
@@ -58,7 +55,7 @@ const BookForm = () => {
 
   const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
     contractName: "ArtNFT",
-    functionName: "createArtNFT",
+    functionName: "createArt",
     args: [],
     //value: parseEther("0.1"),
     blockConfirmations: 1,
@@ -87,9 +84,9 @@ const BookForm = () => {
     e.preventDefault(); // Empêche le rechargement de la page
     console.log("Art Data:", formData);
 
-    const { ipfsHash, metadataHash } = await storeNFT(formData);
+    const { ipfsHash } = await storeNFT(formData);
     console.log("Metadata URL:", ipfsHash);
-    writeAsync({ args: [ipfsHash, formData.name, formData.creator, metadataHash] });
+    writeAsync({ args: [ipfsHash, formData.name, formData.creator] });
   };
 
   const fillFormAutomatically = () => {
