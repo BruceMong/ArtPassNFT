@@ -26,11 +26,11 @@ export const menuLinks: HeaderMenuLink[] = [
   },
   {
     label: "Create NFT Art",
-    href: "/createbooks",
+    href: "/createart",
   },
   {
     label: "Collection NFT",
-    href: "/collection/books",
+    href: "/collection/arts",
   },
   {
     label: "Proofs NFT",

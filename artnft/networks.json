@@ -1,8 +1,0 @@
-{
-  "sepolia": {
-    "ArtNFT": {
-      "address": "0xAeAAb5AC8650dBb41D534278C4705E71196EAe9c",
-      "startBlock": 6409011
-    }
-  }
-}

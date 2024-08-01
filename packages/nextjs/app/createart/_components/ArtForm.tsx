@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { useAccount } from "wagmi";
 import { useScaffoldContractWrite, useScaffoldEventSubscriber } from "~~/hooks/scaffold-eth";
 
-const BookForm = () => {
+const ArtForm = () => {
   const { address } = useAccount();
 
   const [formData, setFormData] = useState({
@@ -194,4 +194,4 @@ const BookForm = () => {
   );
 };
 
-export default BookForm;
+export default ArtForm;

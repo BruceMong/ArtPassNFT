@@ -1,9 +1,8 @@
-import {gql} from '@apollo/client'
+import { gql } from "@apollo/client";
 
-
-export const GET_NFTS_BOOK = gql`
-  query GetTokenBooks($first: Int!, $skip: Int) {
-    tokenBooks(first: $first, skip: $skip) {
+export const GET_NFTS_ART = gql`
+  query GetTokenArts($first: Int!, $skip: Int) {
+    tokenArts(first: $first, skip: $skip) {
       id
       owner
       tokenId
@@ -11,9 +10,9 @@ export const GET_NFTS_BOOK = gql`
   }
 `;
 
-export const GET_NFT_BOOK_BY_ID = gql`
-  query GetTokenBook($id: ID!) {
-    tokenBook(id: $id) {
+export const GET_NFT_ART_BY_ID = gql`
+  query GetTokenArt($id: ID!) {
+    tokenArt(id: $id) {
       id
       owner
       tokenId
@@ -21,10 +20,9 @@ export const GET_NFT_BOOK_BY_ID = gql`
   }
 `;
 
-
-export const GET_NFTS_PROOF_BOOK = gql`
-  query GetTokenReadBooks($first: Int!, $skip: Int) {
-    tokenReadBooks(first: $first, skip: $skip) {
+export const GET_NFTS_PROOF_ART = gql`
+  query GetTokenProofArts($first: Int!, $skip: Int) {
+    tokenProofArts(first: $first, skip: $skip) {
       id
       owner
       tokenId
@@ -32,9 +30,9 @@ export const GET_NFTS_PROOF_BOOK = gql`
   }
 `;
 
-export const GET_NFT_BOOK_PROOF_BY_ID = gql`
-  query GetTokenReadBooks($id: ID!) {
-    tokenReadBook(id: $id) {
+export const GET_NFT_PROOF_ART_BY_ID = gql`
+  query GetTokenProofArt($id: ID!) {
+    tokenProofArt(id: $id) {
       id
       owner
       tokenId
@@ -42,9 +40,9 @@ export const GET_NFT_BOOK_PROOF_BY_ID = gql`
   }
 `;
 
-export const GET_NFTS_PROOF_BOOK_BY_OWNER = gql`
-  query GetTokenReadBooksByOwner($owner: String!, $first: Int!, $skip: Int) {
-    tokenReadBooks(first: $first, skip: $skip, where: {owner: $owner}) {
+export const GET_NFTS_PROOF_ART_BY_OWNER = gql`
+  query GetTokenProofArtsByOwner($owner: String!, $first: Int!, $skip: Int) {
+    tokenProofArts(first: $first, skip: $skip, where: { owner: $owner }) {
       id
       owner
       tokenId

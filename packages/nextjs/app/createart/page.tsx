@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import BookForm from "./_components/BookForm";
+import ArtForm from "./_components/ArtForm";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { Address } from "~~/components/scaffold-eth";
@@ -14,7 +14,7 @@ import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 //const contractsData = getAllContracts();
 //const contractNames = Object.keys(contractsData) as ContractName[];
 
-const CreateBook: NextPage = () => {
+const CreateArt: NextPage = () => {
   const ContractName = "ArtNFT";
   const { data: ownerAdress } = useScaffoldContractRead({
     contractName: ContractName,
@@ -42,14 +42,14 @@ const CreateBook: NextPage = () => {
     <>
       {address == ownerAdress ? (
         <div className="flex flex-col items-center mt-8">
-          <h1 className="text-2xl font-bold mb-4">Créer un livre :</h1>
+          <h1 className="text-2xl font-bold mb-4">Créer un Art NFT :</h1>
 
-          <BookForm ContractName={ContractName} />
+          <ArtForm ContractName={ContractName} />
         </div>
       ) : (
         <div>
           {" "}
-          <p>Vous ne disposez pas des droits permettant de créer des livres</p>
+          <p>Vous ne disposez pas des droits permettant de créer des NFT</p>
           <p>
             {address} != {ownerAdress}
           </p>
@@ -59,4 +59,4 @@ const CreateBook: NextPage = () => {
   );
 };
 
-export default CreateBook;
+export default CreateArt;

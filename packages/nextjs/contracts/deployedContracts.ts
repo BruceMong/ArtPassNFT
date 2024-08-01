@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     ArtNFT: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0x9cBE760bB5c10E024E0a9AEe05bee67bA445883D",
       abi: [
         {
           inputs: [],
@@ -569,7 +569,7 @@ const deployedContracts = {
       },
     },
     ProofOfOwnNFT: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0xe862d54eE7ECF5c00a3d44f479721Db3D1284b0C",
       abi: [
         {
           inputs: [
